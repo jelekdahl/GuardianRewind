@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APP NAME: By Mark Spectre</title>
+  <title>Rewind: By Jon-Erik Ekdahl</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,7 +28,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
         <img class="me-2" src="/img/je_logo_only_dark.svg" height="30" />
-        APP NAME
+        Rewind
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,10 +69,42 @@
   </nav>
 
   <main class="container py-3">
-    <h1>APP UI GOES HERE</h1>
-    <input class="form-control my-3" placeholder="Enter a message" type="text" style="width: 10rem;" name="message"
-      id="message" />
-    <button id="btnSubmit" class="btn btn-primary">Display Message</button>
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="col">
+        <h1 class="display-5 fw-bold">Rewind</h1>
+        <h2 class="lead border-2 border-bottom">
+          A Coding Challenge
+        </h2>
+        <p>
+          There and back again! Rewind is a JavaScript coding challenge
+          using arrays. Write a program to display the user's input in
+          reverse.
+        </p>
+        <p>
+          To begin, enter a message in the input box and press the button
+          to see your message in reverse.
+        </p>
+      </div>
+      <div class="col">
+        <form action="#">
+          <label class="form-label" for="userInput">Enter a Message to Reverse</label>
+          
+          <input class="form-control" type="text" id="userInput" name="userInput" placeholder="Enter a Message" />
+          
+          <button id="btnSubmit" type="button" class="my-3 btn btn-primary">
+            Reverse!
+          </button>
+        </form>
+
+        <div class="alert alert-success mt-3 invisible" id="alert" role="alert">
+          <h2 class="alert-heading">Results</h2>
+          
+          <p id="msg">
+            <!-- Reversed message goes here -->
+          </p>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="py-3 container-fluid">
@@ -107,7 +139,7 @@
     let button = document.getElementById('btnSubmit');
 
     // tell the button to run our displayMessage function when clicked
-    button.addEventListener('click', displayMessage);
+    button.addEventListener('click', getValues);
 
   </script>
 
