@@ -70,126 +70,128 @@
     <h1 class="border-bottom border-2 border-dark">The Code</h1>
 
     <div class="my-3">
-      <p class="h6">Click the buttons to hide/show the corresponding code excerpts.</p>
+      <p class="h6">Click the headers below to hide/show the corresponding code excerpts.</p>
     </div>
 
-    <!-- Function: getValues -->
-    <div>
-      <div>
-        <button class="code-header h2 border-0 rounded-3 w-100 pb-1" type="button" data-bs-toggle="collapse"
-          href="#codeGetValues" aria-expanded="false" aria-controls="codeGetValues">
-          Function: getValues
-        </button>
-      </div>
+    <div class="accordion accordion-flush" id="accordionCode">
+      <!-- Function: getValues -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGetValues">
+          <button class="accordion-button code-header collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseGetValues" aria-expanded="true" aria-controls="collapseGetValues">
+            Function: getValues
+          </button>
+        </h2>
+        <div id="collapseGetValues" class="accordion-collapse collapse" aria-labelledby="headingGetValues">
+          <div class="row container bg-light ms-0 mb-3 p-3 border border-1 border-dark-subtle">
+            <div class="col-12 col-lg-8">
+              <pre class="line-numbers">
+                <code class="language-js">
+                  // get the user's message to reverse
+                  function getValues() {
 
-      <div id="codeGetValues"
-        class="row collapse show container bg-light ms-0 mb-3 p-3 border border-1 border-dark-subtle rounded-3">
-        <div class="col-12 col-lg-8">
-          <pre class="line-numbers">
-              <code class="language-js">
-                // get the user's message to reverse
-                function getValues() {
+                    // get the text input from the page
+                    let message = document.getElementById('userInput').value;
 
-                  // get the text input from the page
-                  let message = document.getElementById('userInput').value;
+                    // validate the input: make sure the input is not empty
+                    if (message.length == 0) {
+                      Swal.fire({
+                        icon: 'error',
+                        backdrop: false,
+                        text: 'Please enter a string to reverse'
+                      })
+                    } else {
+                      // pass the input to reverseMessage and assign its return value to a variable
+                      let revMsg = reverseMessage(message);
 
-                  // validate the input: make sure the input is not empty
-                  if (message.length == 0) {
-                    Swal.fire({
-                      icon: 'error',
-                      backdrop: false,
-                      text: 'Please enter a string to reverse'
-                    })
-                  } else {
-                    // pass the input to reverseMessage and assign its return value to a variable
-                    let revMsg = reverseMessage(message);
+                      // give the reversed message to displayMessage to show on the page
+                      displayMessage(revMsg);
+                    }
 
-                    // give the reversed message to displayMessage to show on the page
-                    displayMessage(revMsg);
                   }
+                </code>
+              </pre>
+            </div>
 
-                }
-              </code>
-            </pre>
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <p>
-            This function receives the user's input. It then shows an error message if the input
-            is empty. Otherwise, it calls <code>reverseMessage</code> to reverse the input,
-            then calls <code>displayMessage</code> to display the reversed input on the webpage.
-          </p>
+            <div class="col-12 col-lg-4">
+              <p>
+                This function receives the user's input. It then shows an error message if the input
+                is empty. Otherwise, it calls <code>reverseMessage</code> to reverse the input,
+                then calls <code>displayMessage</code> to display the reversed input on the webpage.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Function: reverseMessage -->
-    <div>
-      <div>
-        <button class="code-header h2 border-0 rounded-3 w-100 pb-1" type="button" data-bs-toggle="collapse"
-          href="#codeReverseMessage" aria-expanded="false" aria-controls="codeReverseMessage">
-          Function: reverseMessage
-        </button>
-      </div>
-
-      <div id="codeReverseMessage"
-        class="row collapse show container bg-light ms-0 mb-3 p-3 border border-1 border-dark-subtle rounded-3">
-        <div class="col-12 col-lg-8">
-          <pre class="line-numbers">
-              <code class="language-js">
-                // reverse the string
-                function reverseMessage(input) {
-                  // return input.split('').reverse().join(''); // <--- Don't use this in an interview
-                  let output = '';
-                  
-                  for (let i = input.length - 1; i >= 0; i--) {
-                    output += input[i];
+      <!-- Function: reverseMessage -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingReverseMessage">
+          <button class="accordion-button code-header collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseReverseMessage" aria-expanded="true" aria-controls="collapseReverseMessage">
+            Function: reverseMessage
+          </button>
+        </h2>
+        <div id="collapseReverseMessage" class="accordion-collapse collapse" aria-labelledby="headingReverseMessage">
+          <div class="row container bg-light ms-0 mb-3 p-3 border border-1 border-dark-subtle">
+            <div class="col-12 col-lg-8">
+              <pre class="line-numbers">
+                <code class="language-js">
+                  // reverse the string
+                  function reverseMessage(input) {
+                    // return input.split('').reverse().join(''); // <--- Don't use this in an interview
+                    let output = '';
+                    
+                    for (let i = input.length - 1; i >= 0; i--) {
+                      output += input[i];
+                    }
+                    
+                    return output;
                   }
-                  
-                  return output;
-                }
-              </code>
-            </pre>
-        </div>
+                </code>
+              </pre>
+            </div>
 
-        <div class="col-12 col-lg-4">
-          <p>
-            This function reverses the user's input string. It does so by iterating
-            through each character in the string, starting from the end to the
-            start. Each character is added onto the end of a new string, in effect
-            creating the reversed input string.
-          </p>
+            <div class="col-12 col-lg-4">
+              <p>
+                This function reverses the user's input string. It does so by iterating
+                through each character in the string, starting from the end to the
+                start. Each character is added onto the end of a new string, in effect
+                creating the reversed input string.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Function: displayMessage -->
-    <div>
-      <div>
-        <button class="code-header h2 border-0 rounded-3 w-100 pb-1" type="button" data-bs-toggle="collapse"
-          href="#codeDisplayMessage" aria-expanded="false" aria-controls="codeDisplayMessage">
-          Function: displayMessage
-        </button>
-      </div>
+      <!-- Function: displayMessage -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDisplayMessage">
+          <button class="accordion-button code-header collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseDisplayMessage" aria-expanded="true" aria-controls="collapseDisplayMessage">
+            Function: displayMessage
+          </button>
+        </h2>
+        <div id="collapseDisplayMessage" class="accordion-collapse collapse" aria-labelledby="headingDisplayMessage">
+          <div class="row container bg-light ms-0 mb-3 p-3 border border-1 border-dark-subtle">
+            <div class="col-12 col-lg-8">
+              <pre class="line-numbers">
+                <code class="language-js">
+                  // display the reversed message
+                  function displayMessage(message) {
+                    document.getElementById('msg').textContent = `Your message reversed is: ${message}`;
+                    document.getElementById('alert').classList.remove('invisible');
+                  }
+                </code>
+              </pre>
+            </div>
 
-      <div id="codeDisplayMessage"
-        class="row collapse show container bg-light ms-0 mb-3 p-3 border border-1 border-dark-subtle rounded-3">
-        <div class="col-12 col-lg-8">
-          <pre class="line-numbers">
-              <code class="language-js">
-                // display the reversed message
-                function displayMessage(message) {
-                  document.getElementById('msg').textContent = `Your message reversed is: ${message}`;
-                  document.getElementById('alert').classList.remove('invisible');
-                }
-              </code>
-            </pre>
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <p>
-            This message displays the reversed input string onto the webpage.
-          </p>
+            <div class="col-12 col-lg-4">
+              <p>
+                This message displays the reversed input string onto the webpage.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
